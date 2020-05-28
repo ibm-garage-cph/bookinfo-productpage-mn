@@ -19,7 +19,8 @@ oc apply -f openshift/service.yaml
 
 oc apply -f openshift/destination-rule-productpage-v1+.yaml
 
-oc apply -f openshift/virtual-services-productpage-v2+.yaml
+oc apply -f openshift/virtual-services-productpage-v1+.yaml
+# oc apply -f openshift/virtual-services-productpage-v2+.yaml
 
 
 # Check port forwarding for
