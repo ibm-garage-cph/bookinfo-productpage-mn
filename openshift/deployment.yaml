@@ -18,9 +18,12 @@ spec:
         version: v2
     spec:
       containers:
-        - image: <IMAGE_NAME> # on purpose, will be replaced by pipeline
+        - image: de.icr.io/kmddk/bookinfo-productpage-v2:1
           imagePullPolicy: Always
-          name: productpage
+          name: productpage-v2
+          env:
+            - name: DETAILS_HOSTNAME
+              value: details-v2
           ports:
             - containerPort: 9080
               protocol: TCP

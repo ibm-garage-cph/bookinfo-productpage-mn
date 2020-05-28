@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: productpage
-  name: productpage
+  name: productpage-v2
 spec:
   type: ClusterIP
   ports:
@@ -12,3 +12,4 @@ spec:
       targetPort: 9080
   selector:
     app: productpage
+    version: v2
