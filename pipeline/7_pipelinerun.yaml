@@ -13,6 +13,3 @@ spec:
     - name: image
       resourceRef:
         name: registry-bookinfo-productpage
-  params:
-    - name: NAMESPACE
-      value: bookinfo-mn
