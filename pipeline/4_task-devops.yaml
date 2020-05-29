@@ -42,4 +42,4 @@ spec:
       image: docker.io/csantanapr/helm-kubectl-curl-git-jq-yq
       name: gitops-step
       resources: {}
-      workingDir: "/workspace/"
+      workingDir: /workspace
