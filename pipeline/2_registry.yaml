@@ -6,4 +6,4 @@ spec:
   type: image
   params:
     - name: url
-      value: de.icr.io/kmddk/bookinfo-productpage # <your-repository> -> e.g. mn-bookinfo
+      value: de.icr.io/kmddk/bookinfo-productpage-v2 # <your-repository> -> e.g. mn-bookinfo
