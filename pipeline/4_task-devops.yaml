@@ -22,9 +22,6 @@ spec:
     - args:
         - |-
           set -e
-
-          pwd
-          ls -la
           SHORT_GIT_HASH=$(cat .git/FETCH_HEAD | awk '{print substr($1,0,7)}')
           NEW_IMAGE=$(inputs.resources.image.url):$SHORT_GIT_HASH
           echo Setting image to $NEW_IMAGE
@@ -36,6 +33,8 @@ spec:
 
           ls -al
           sed -i "s|image:.*$|image: ${NEW_IMAGE}|g" $(inputs.params.DEPLOYMENT_FILE)
+          date > timestamp
+
           git add -u
           git commit -m "Updating image name : $NEW_IMAGE"
           git push
