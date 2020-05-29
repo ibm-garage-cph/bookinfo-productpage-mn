@@ -4,7 +4,7 @@
     "description": "End-2-end tests for bookinfo-productpage",
     "main": "index.js",
     "scripts": {
-        "test": "CYPRESS_HOST='http://localhost:9080' cypress run",
+        "test": "CYPRESS_HOST='http://productpage:9080' cypress run",
         "test:local": "CYPRESS_HOST='http://localhost:9081' cypress open",
         "test:local:ps": "cypress open"
     },

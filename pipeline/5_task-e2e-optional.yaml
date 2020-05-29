@@ -16,7 +16,7 @@ spec:
         - -c
         - |
           echo 'Testing...'
-          npm run e2e
+          npm run test
       env:
         - name: "CYPRESS_HOST"
           value: "http://productpage"
