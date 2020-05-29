@@ -15,6 +15,9 @@ spec:
     resources:
       - name: image
         type: image
+      - name: git
+        type: git
+        targetPath: /
   steps:
     - args:
         - |-
