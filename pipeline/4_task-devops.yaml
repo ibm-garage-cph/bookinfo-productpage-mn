@@ -15,7 +15,7 @@ spec:
     resources:
       - name: image
         type: image
-      - name: source
+      - name: git
         type: git
   steps:
     - args:
@@ -30,7 +30,7 @@ spec:
           cd gitops
 
           ls -al
-          sed -i "s|image:.*$|image: ${NEW_IMAGE}|g" $(inputs.params.GITOPS_REPO)
+          sed -i "s|image:.*$|image: ${NEW_IMAGE}|g" $(inputs.params.DEPLOYMENT_FILE)
           git add -u
           git commit -m "Updating image name : $NEW_IMAGE"
           git push
