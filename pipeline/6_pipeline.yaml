@@ -9,9 +9,14 @@ spec:
     - name: image
       type: image
   params:
-    - name: NAMESPACE
+    - description: The location of the repo to be updated
+      name: GITOPS_REPO
       type: string
-      description: name of the cluster namespace to apply mamnifests to
+      default: https://github.com/ibm-garage-cph/gitops-bookinfo
+    - description: The path to the deployment yaml where we apply the change
+      name: DEPLOYMENT_FILE
+      type: string
+      default: ./prod/deployment-productpage-v2.yaml
   tasks:
     - name: build-push
       taskRef:
@@ -22,9 +27,9 @@ spec:
             resource: git
           - name: image
             resource: image
-    - name: apply-manifest
+    - name: gitops-task
       taskRef:
-        name: apply-manifests-task
+        name: gitops-task
       runAfter: [build-push]
       resources:
         inputs:
@@ -33,5 +38,7 @@ spec:
           - name: image
             resource: image
       params:
-        - name: namespace
-          value: $(params.NAMESPACE)
+        - name: GITOPS_REPO
+          value: $(params.GITOPS_REPO)
+        - name: DEPLOYMENT_FILE
+          value: $(params.DEPLOYMENT_FILE)
