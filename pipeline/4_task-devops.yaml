@@ -15,15 +15,17 @@ spec:
     resources:
       - name: image
         type: image
-      - name: git
-        type: git
   steps:
     - args:
         - |-
           set -e
+
+          pwd
+          ls -la
           SHORT_GIT_HASH=$(cat .git/FETCH_HEAD | awk '{print substr($1,0,7)}')
           NEW_IMAGE=$(inputs.resources.image.url):$SHORT_GIT_HASH
           echo Setting image to $NEW_IMAGE
+
           git config --global user.email "tekton@ibmcloud.com"
           git config --global user.name "Tekton Pipeline"
           git clone -b master $(inputs.params.GITOPS_REPO) gitops

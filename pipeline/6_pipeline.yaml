@@ -33,8 +33,6 @@ spec:
       runAfter: [build-push]
       resources:
         inputs:
-          - name: git
-            resource: git
           - name: image
             resource: image
       params:
